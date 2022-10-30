@@ -178,7 +178,7 @@ redux、vuex 这些都是优秀的状态管理工具。
 
 <br>
 
-场景：有一个区域下拉选框组件，选项 options 是通过接口动态获取。
+场景：一个*语言下拉选框*组件，选项 options 是通过接口动态获取。
 
 <img src="https://s1.ax1x.com/2022/10/30/xIhPmV.jpg" width="400" />
 
@@ -192,21 +192,19 @@ redux、vuex 这些都是优秀的状态管理工具。
 
 组件内在 mounted 钩子上调用接口，options 数据保存在组件内部状态
 
+<v-click>
+
+如果一个页面需要展示多个下拉框组件呢
+
+</v-click>
+
 ---
 
 # 下拉框组件 -- 方案二
 
 <br>
 
-如果一个页面需要展示多个下拉框组件呢
-
-<br>
-
-<v-click>
-
 状态提升（中心化）
-
-</v-click>
 
 <br>
 
@@ -215,6 +213,10 @@ redux、vuex 这些都是优秀的状态管理工具。
 1. 页面根组件触发 dispatch 调用接口
 2. 数据保存在 vuex state 中
 3. `LanguageSelector` 组件从 vuex 获取 options
+
+</v-click>
+
+<v-click>
 
 当 `LanguageSelector` 渲染存在条件时，该方案实现下，无论 `LanguageSelector` 是否真正渲染，都会发起请求。
 
@@ -230,9 +232,16 @@ redux、vuex 这些都是优秀的状态管理工具。
 
 <v-click>
 
-options 与页面根组件耦合，读、写位置过于分散。
+- options 与页面根组件耦合
+- 读、写位置过于分散。
 
-对于开发者来说，使用 `LanguageSelector` 组件时组要关注页面及子组件的渲染时机，但本身这些可能是不需要关注的。
+对于开发者来说，使用 `LanguageSelector` 组件时组要关注页面及子组件的渲染时机
+
+</v-click>
+
+<v-click>
+
+但本身这些可能是不需要关注的
 
 </v-click>
 
@@ -243,10 +252,13 @@ options 与页面根组件耦合，读、写位置过于分散。
 1. 中心化：避免页面多次使用组件时重复请求
 2. 按需请求：仅在需要数据时获取数据
 3. 视图更新：适配框架，自动触发视图更新
+4. 方便复用：作为组件，一定会被多个页面多次使用，尽量降低开发的使用成本
 
 ---
 
 # talk is cheap
+
+> TODO
 
 ---
 
