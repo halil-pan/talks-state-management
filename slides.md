@@ -258,7 +258,7 @@ redux、vuex 这些都是优秀的状态管理工具。
 
 # talk is cheap
 
-> TODO
+<img src="https://s1.ax1x.com/2022/11/02/xHyCuV.png" />
 
 ---
 
